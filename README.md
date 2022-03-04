@@ -1,0 +1,1 @@
+(framework/mini-logo.png)
