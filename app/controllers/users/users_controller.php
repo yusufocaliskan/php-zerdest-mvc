@@ -33,9 +33,4 @@ class users_controller extends controller
         $this->render('users/list', ['title'=>'Kullanıcı Listesi','all_users'=>$all_users]);
     }
 
-
-    
-
-   
-
 }
