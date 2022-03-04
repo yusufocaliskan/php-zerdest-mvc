@@ -13,7 +13,7 @@ class database
     public function connect()
     {
         
-        $this->connect = new PDO("mysql:host=localhost; dbname=book_store", 'root', 'Ma5ik33ysi45+');
+        $this->connect = new PDO(DB_ENGINE.":host=".HOST."; dbname=".DB_NAME, USER_NAME, USER_PASSWORD);
         $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         if(!$this->connect)
         {
