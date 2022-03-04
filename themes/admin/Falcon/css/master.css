@@ -1,0 +1,83 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css);
+
+body{
+    font-family: "Open Sans";    
+}
+
+.wrapper{
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.row{
+    width: 100%;
+}
+
+.row::after{
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+.col-4{
+    width: 25%;
+    float: left;
+}
+
+
+.col-4{
+    width: 25%;
+    float: left;
+}
+
+.col-8{
+    width: 66.333%;
+    float: left;
+}
+
+header{
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+    margin-bottom:  20px;
+}
+
+
+.left-side{
+    min-height: 400px;
+}
+
+.left-side li a{
+    padding: 5px 0;
+    display: block;
+}
+
+.right-side{
+    border: 1px solid #ddd;
+    padding: 20px;
+    min-height: 400px;
+}
+
+footer{
+    text-align: center;
+    padding: 100px;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+
+#all_users{
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+#all_users tr{
+    border-bottom: 1px solid #ddd
+}
+
+#all_users tr:first-child{
+    background-color: rgb(158, 158, 158);
+}
+
+#all_users td{
+    padding: 10px;
+}
