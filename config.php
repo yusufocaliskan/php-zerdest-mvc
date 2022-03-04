@@ -7,6 +7,7 @@ define('BASEPATH','http://zerdest.dv/');
 
 //Framework
 define('FRAMEWORK', ROOT.'framework/');
+define('FRAMEWORK_ASSETS', ROOT.'framework/assets/');
 define('APP', ROOT.'app/');
 define('CONTROLLERS', APP.'controllers/');
 define('VIEWS', APP.'views/');

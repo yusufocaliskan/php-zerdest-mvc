@@ -1,20 +1,21 @@
-<?php
+{{php}}
 
-class news_controller extends controller
+
+class {{controller_name}}_controller extends controller
 {
 
     public function __construct()
     {
         parent::__construct();
 
-        //Modlü yüklle
+        //Model
         $this->model->load();
     }
 
     public function home()
     {
 
-      $this->render('news/home'); 
+      $this->render('{{controller_name}}/home'); 
     }
 
     public function add()
