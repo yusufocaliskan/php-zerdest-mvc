@@ -22,6 +22,7 @@ class users_controller extends controller
 
     public function add_form($param = false)
     {
+        
       $this->render('users/add_form', ['title'=>'Yeni Kullanıcı Ekle']);
     }
 
