@@ -8,15 +8,19 @@ error_reporting(E_ALL);
 require "config.php";
 
 
-//Step#1 : Core oluıtur
+//Step#1 : Dosyaları yükle
+//========================================================================================
+function load($class_name)
+{
+    require FRAMEWORK.$class_name.'.php';
+}
+spl_autoload_register('load');
+
+
+//Step#2 : Core oluıtur
 //========================================================================================
 
-require FRAMEWORK.'database.php';
-require FRAMEWORK.'controller.php';
-require FRAMEWORK.'model.php';
-require ROOT.'framework/core.php';
 
 
-
-$core = new Core();
+$core = new core();
 $core->run();

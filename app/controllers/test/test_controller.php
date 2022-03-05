@@ -1,20 +1,21 @@
 <?php
 
 
-class ads_controller extends controller
+class test_controller extends controller
 {
+
     public function __construct()
     {
         parent::__construct();
-       
+
         //Model
         $this->model->load();
-
     }
 
     public function home()
     {
-        $this->render('ads/home'); 
+
+      $this->render('test/home'); 
     }
 
     public function add()
@@ -27,10 +28,10 @@ class ads_controller extends controller
         //
     }
 
+
     public function edit()
     {
         //   
     }
-
 
 }

@@ -20,7 +20,7 @@ define('THEME_PATH', ROOT.'themes/');
 
 //Database bağlantı bilgileri
 define('HOST','localhost');
-define('DB_NAME','book_store');
+define('DB_NAME','zerdest');
 define('USER_NAME','root');
 define('USER_PASSWORD', 'Ma5ik33ysi45+');
 define('DB_ENGINE','mysql');
