@@ -22,5 +22,5 @@ define('THEME_PATH', ROOT.'themes/');
 define('HOST','localhost');
 define('DB_NAME','zerdest');
 define('USER_NAME','root');
-define('USER_PASSWORD', 'Ma5ik33ysi45+');
+define('USER_PASSWORD', '-------------');
 define('DB_ENGINE','mysql');
