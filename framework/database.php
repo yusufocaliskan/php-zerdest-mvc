@@ -82,7 +82,7 @@ class database
     }
 
     /**
-     * Yeni bir admi ekle
+     * Yeni bir admin ekle
      *
      * @return void
      */

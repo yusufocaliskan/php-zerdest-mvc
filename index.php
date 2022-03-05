@@ -14,13 +14,12 @@ function load($class_name)
 {
     require FRAMEWORK.$class_name.'.php';
 }
+
 spl_autoload_register('load');
 
 
-//Step#2 : Core oluıtur
+//Step#2 : Core oluştur
 //========================================================================================
-
-
 
 $core = new core();
 $core->run();
