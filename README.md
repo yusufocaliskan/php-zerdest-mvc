@@ -2,4 +2,4 @@
 
 # Install
  - zerdest start [database-name] : starts the a new project 
- - zerdest new-controller [controller-neme] : creates new fresh controller
+ - zerdest new-controller [controller-neme] : creates a new fresh controller
