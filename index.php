@@ -4,11 +4,11 @@ ini_set('display_errors','1');
 ini_set('display_startup_errors','1');
 error_reporting(E_ALL);
 
-//Config dosyasını çek.
+//Inlude the config file
 require "config.php";
 
 
-//Step#1 : Dosyaları yükle
+//Step#1 : Load the framework
 //========================================================================================
 function load($class_name)
 {
@@ -18,7 +18,7 @@ function load($class_name)
 spl_autoload_register('load');
 
 
-//Step#2 : Core oluştur
+//Step#2 : Create the core and run it
 //========================================================================================
 
 $core = new core();

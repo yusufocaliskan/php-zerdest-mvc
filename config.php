@@ -18,7 +18,7 @@ define('LAYOUT', VIEWS.'layouts/');
 define('THEME_DEFAULT_NAME','Falcon/');
 define('THEME_PATH', ROOT.'themes/');
 
-//Database bağlantı bilgileri
+//Information of the Database connection
 define('HOST','localhost');
 define('DB_NAME','zerdest');
 define('USER_NAME','root');

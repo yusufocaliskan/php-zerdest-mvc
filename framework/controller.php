@@ -3,19 +3,26 @@
 class controller
 {   
     /**
-     * Controllerin objesi
+     * The model object
      *  
      * @var object
      */
     public $model;
 
+    //Holds all the datas
     public $data = [];
     
+    /**
+     * Inisialiazing
+     */
     public function __construct()
     {
         $this->model = new model();
     }
 
+    /**
+     * Rendering the view..
+     */
     public function render($content, $data = array())
     {
         extract($data);
@@ -26,6 +33,9 @@ class controller
     }
 
 
+    /**
+     * Settin all the properties to the data array
+     */
     public function __set($key, $val)
     {
         $this->data[$key] = $val;

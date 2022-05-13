@@ -7,7 +7,7 @@ class news_controller extends controller
     {
         parent::__construct();
 
-        //Modlü yüklle
+        //Load the model
         $this->model->load();
     }
 

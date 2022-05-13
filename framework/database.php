@@ -7,7 +7,7 @@ class database
     public $connect;
 
     /**
-     * Bağlantıyı yapar.
+     * Creates the connection
      *
      * @return object
      */
@@ -26,7 +26,7 @@ class database
     }
 
     /**
-     * Database i oluştur.
+     * Create a database
      *
      * @param string $database_name
      * @return void
@@ -44,14 +44,14 @@ class database
 
         //  if($create->rowCout() > 0)
         //  {
-        //      echo 'database oluşturuldu';
+        //      echo 'the database is created';
         //  }
 
     }
 
 
     /**
-     * Kullanıcı tablosu ıoluştur..
+     * Create the user table
      *
      * @param string $database database ismi
      * @return void
@@ -74,15 +74,12 @@ class database
             )
         ");
 
-        
-
         $create->execute();
         
-
     }
 
     /**
-     * Yeni bir admin ekle
+     * Ceate a new admin
      *
      * @return void
      */

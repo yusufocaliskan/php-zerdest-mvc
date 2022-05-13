@@ -10,7 +10,7 @@ class core{
     public $uri;
 
     /**
-     * Controller yolu
+     * Controller path
      *
      * @var string
      */
@@ -39,7 +39,7 @@ class core{
 
 
     /**
-     * controller adı
+     * name of the controller
      *
      * @var string
      */
@@ -52,49 +52,50 @@ class core{
 
     
     /**
-     * Çalıştır..
+     * Run it..
      *
      * @return void
      */
     public function run()
     {
-        //url all
+        //get the uri
         $this->uri = $_SERVER['REQUEST_URI'];
         $this->uri = ltrim($this->uri, '/');
         $this->uri = rtrim($this->uri, '/');
         $this->uri = explode('/', $this->uri);
 
-        //Controller / Method ve parametreleri belirle..
+        //determine the Controller,  Method and parametre
         $this->controller = array_shift($this->uri);
         $this->method = array_shift($this->uri);
         $this->params = $this->uri;
 
-        //controller adı
+        //get controller
         self::$controller_name = $this->controller;
 
-        //Controller var mı?
+        //Is there any controller
         if(empty($this->controller))
         {
             $this->controller = 'index'; 
         }
 
-        //Controller: Dosyayı çek
+        //Inlude the controller file
        $this->controller_path = CONTROLLERS."$this->controller/".$this->controller."_controller.php";
         
-        //controller dosyası var mı?
+        //Is there any controller
         if(!file_exists($this->controller_path))
-        {
+        {  
+            //No, show them a eror page.
             $this->_404();
         }
         
-        //Classı çağır
+        //Call the class
         require $this->controller_path;
         $class_name = "$this->controller"."_controller";
 
-        //Instance oluştur.
+        //Create the Instance of it.
         $this->controller = new $class_name;
 
-        //Method var mı?
+        //Any method?
         if(!empty($this->method))
         {
             if(!method_exists($this->controller, $this->method))
@@ -115,7 +116,7 @@ class core{
 
 
     /**
-     * Hata sayfasını gösrir
+     * shows the error message
      *
      * @return void
      */

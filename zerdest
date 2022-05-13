@@ -7,32 +7,31 @@ require FRAMEWORK.'zerdest_argv.php';
 $zerdest_argv = new zerdest_argv();
 
 
-//frameworkü başlat
+//start the framework
 if($argv[1] == 'start')
 {
-    //Bağlan
+    //connection
     $DB = new database();
     $DB->connect();
 
-    //Boş değilse database'i kur
+    //Create the database if it is empty
     if(!empty($argv[2]))
     {
-        //Database oluşr ve kullanıcı ekle
+        //Create the database and add an user
         $DB->create_new_database($argv[2]);
         $DB->create_user_table($argv[2]);
         $DB->insert_default_admin();
     }
 
-    //Yeni login controller oluştur
+    //Create a new login controller
     $zerdest_argv->new_controller(['2'=>'login']);
-
     exit;
 }
 
 
 if($argv && $argv[1] == 'new-controller')
 {  
-    //Yeni bir controller oluştur
+    //Create a new controller 
     $zerdest_argv->new_controller($argv);
 }
 

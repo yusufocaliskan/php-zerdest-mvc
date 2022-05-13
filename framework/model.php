@@ -4,7 +4,7 @@ class model
 {   
 
     /**
-     * Database bağlantıs
+     * Database connection
      *
      * @var object
      */
@@ -12,20 +12,20 @@ class model
 
     public function __construct()
     {   
-        //Bağlantıyı yap
+        //Provide the connection
         $database = new database();
         $this->DB = $database->connect();
     }
 
     /**
-     * Model objesini tutar
+     * Holds the model object
      *
      * @var object
      */
     private $model; 
 
     /**
-     * Yeni bir model
+     * A new model
      *
      * @param string $model_name
      * @return object
