@@ -5,7 +5,8 @@ Php is a strong language, but not that organized! Zerdeşt [zerdesht] Mvc struct
 
 Here is the github repository.
 
-git clone https://github.com/yusufocaliskan/php-zerdest-mvc
+``git clone https://github.com/yusufocaliskan/php-zerdest-mvc``
+
 For the first installation:
 
 ``zerdest start [your-database-name]``

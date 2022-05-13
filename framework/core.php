@@ -1,5 +1,7 @@
 <?php
 
+namespace framework;
+
 class core{
 
     /**
@@ -77,9 +79,10 @@ class core{
         {
             $this->controller = 'index'; 
         }
-
+        
         //Inlude the controller file
-       $this->controller_path = CONTROLLERS."$this->controller/".$this->controller."_controller.php";
+       $this->controller_path = CONTROLLERS.$this->controller."_controller.php";
+       echo $this->controller_path;
         
         //Is there any controller
         if(!file_exists($this->controller_path))
@@ -91,6 +94,7 @@ class core{
         //Call the class
         require $this->controller_path;
         $class_name = "$this->controller"."_controller";
+        
 
         //Create the Instance of it.
         $this->controller = new $class_name;

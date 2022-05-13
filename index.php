@@ -7,12 +7,15 @@ error_reporting(E_ALL);
 //Inlude the config file
 require "config.php";
 
+use \framework\core;
+
 
 //Step#1 : Load the framework
 //========================================================================================
 function load($class_name)
 {
-    require FRAMEWORK.$class_name.'.php';
+    $class_name = str_replace('\\','/', $class_name);
+    require $class_name.'.php';
 }
 
 spl_autoload_register('load');
@@ -22,4 +25,4 @@ spl_autoload_register('load');
 //========================================================================================
 
 $core = new core();
-$core->run();
+//$core->run();
