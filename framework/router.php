@@ -30,7 +30,7 @@ class router extends framework{
         //We will run it, when the is no any defined route as index.
         $this->wellcom_controller = $this->set('/',Index::class, 'home','get');
 
-        Debug::pre($_SERVER);
+       // Debug::pre($_SERVER);
         
     }
 
@@ -118,7 +118,7 @@ class router extends framework{
     public function __destruct()
     {
         $this->init();        
-        Debug::pre($this->routes);
+       // Debug::pre($this->routes);
     }
 
     
