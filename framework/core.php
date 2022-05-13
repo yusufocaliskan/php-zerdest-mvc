@@ -2,7 +2,7 @@
 
 namespace framework;
 
-class core{
+class core extends framework{
 
     /**
      * url

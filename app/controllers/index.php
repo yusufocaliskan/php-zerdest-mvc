@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-class index_controller
+class index
 {
 
     public function home()

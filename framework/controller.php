@@ -2,7 +2,7 @@
 
 namespace framework;
 
-class controller
+class controller extends framework
 {   
     /**
      * The model object

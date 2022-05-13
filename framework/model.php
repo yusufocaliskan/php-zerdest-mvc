@@ -2,7 +2,7 @@
 
 namespace framework;
 
-class model
+class model extends framework
 {   
 
     /**

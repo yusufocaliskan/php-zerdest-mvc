@@ -1,4 +1,4 @@
-![Zerdest is a small php-based mvc framework](/framework/zerdest-logo.png)
+![Zerdest is a small php-based mvc framework](/storage/images/zerdest-logo.png)
 
 
 Php is a strong language, but not that organized! Zerdeşt [zerdesht] Mvc structure aims that solve that problem. However, Zerdeşt is now at the very beginning, we need your help as well. Please don't be shy when you have even a small idea or suggest putting the light on the problem of the structure. We are working on it, day by day, and try to make it more secure and strong. Do you want to take a look?

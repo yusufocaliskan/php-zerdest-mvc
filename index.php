@@ -7,8 +7,11 @@ error_reporting(E_ALL);
 //Inlude the config file
 require "config.php";
 
-use \framework\core;
+include APP.'controllers/users.php';
 
+use framework\core;
+use framework\router;
+use App\Controllers\users;
 
 //Step#1 : Load the framework
 //========================================================================================
@@ -26,3 +29,10 @@ spl_autoload_register('load');
 
 $core = new core();
 //$core->run();
+
+$router = new router();
+$router->get('/user/', users::class, 'home');
+$router->post('/user/add/', users::class, 'create');
+$router->get('/user/list/', users::class, 'list');
+$router->put('/user/update/', users::class, 'update');
+$router->delete('/user/delet/{id}', users::class, 'delete');

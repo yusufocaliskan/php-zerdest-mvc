@@ -5,7 +5,7 @@
     <footer>
         <div class="row">
             <div class="col-12">
-                <p>&copy; Hemû mafên wê ne parastiye.</p>
+                <p>&copy; Copyright</p>
             </div>
         </div>
     </footer>

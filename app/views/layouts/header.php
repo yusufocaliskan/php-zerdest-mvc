@@ -20,7 +20,7 @@
             <div class="col-4">
                 <form action="">
                     <input type="text" name="search">
-                    <button>Ara</button>
+                    <button>Search</button>
                 </form>
             </div>
         </div>
@@ -31,14 +31,9 @@
             <div class="col-4 left-side">
                 <div class="left-menu">
                     <ul>
-                        <li><a href="#">Anasayfa</a></li>
-                        <li><a href="#">Haber</a></li>
-                        <li><a href="/users/add_form">Kullanıcı</a></li>
-                        <li><a href="/users/list">Kullanıcı Listesi</a></li>
-                        <li><a href="#">Yazar</a></li>
-                        <li><a href="#">Video</a></li>
-                        <li><a href="#">Galleri</a></li>
-                        <li><a href="#">Ayarlar</a></li>
+                        <li><a href="#">Homepage</a></li>
+                        <li><a href="#">create_new_database</a></li>
+                        <li><a href="/users/add_form">Users</a></li>
                     </ul>
                 </div>
             </div>

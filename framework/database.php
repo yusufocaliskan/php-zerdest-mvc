@@ -2,7 +2,7 @@
 
 namespace framework;
 
-class database
+class database extends framework
 {   
 
     

@@ -11,5 +11,5 @@
             <input type="password" name="password">
         </p>
     </p>
-    <button>Giriş Yap</button>
+    <button>Loggin</button>
 </form>

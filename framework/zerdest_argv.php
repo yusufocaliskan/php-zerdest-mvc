@@ -2,7 +2,7 @@
 
 namespace framework;
 
-class zerdest_argv
+class zerdest_argv extends framework
 {
 
 
