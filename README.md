@@ -17,6 +17,14 @@ To create a new fresh controller just use that command:
 
 ``zerdest new-controller [a-new-controller-name]``
 
+#You can add the routes by using Router class
+
+``$router->get('/user/', users::class, 'home');
+$router->post('/user/add/', users::class, 'create');
+$router->get('/user/list/', users::class, 'list');
+$router->put('/user/update/', users::class, 'update');
+$router->delete('/user/delete/', users::class, 'delete');``
+
 Now, you can go and create some magic with Zerdesht!
 
 Enjoy!

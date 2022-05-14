@@ -25,7 +25,7 @@ require_once __DIR__ . '/vendor/autoload.php';
 $router = new router();
 
 $router->get('/user/', users::class, 'home');
-$router->post('/user/add/', users::class, 'create');
+$router->get('/user/add/', users::class, 'create');
 $router->get('/user/list/', users::class, 'list');
 $router->put('/user/update/', users::class, 'update');
-$router->delete('/user/delet/{id}', users::class, 'delete');
+$router->delete('/user/delete/', users::class, 'delete');

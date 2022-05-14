@@ -27,8 +27,8 @@ class router extends framework{
     public function __construct()
     {
         //Set the wellcome page
-        //We will run it, when the is no any defined route as index.
-        $this->wellcom_controller = $this->set('/',Index::class, 'home','get');
+        //We will run it, when there is no any defined route as index.
+        $this->wellcom_controller = $this->set('/',Index::class, 'home','GET');
 
        // Debug::pre($_SERVER);
         
@@ -38,40 +38,81 @@ class router extends framework{
     {       
         //get the uri
         $uri = request::uri();
-        
+        $matched = [];
         foreach($this->routes as $route)
         {
-            //Route
-            $route['pattern'] = rtrim($route['pattern'],'/');
-            $route['pattern'] = ltrim($route['pattern'],'/');
-
-            //uri
-            $uri = request::uri();
-            $uri = rtrim($uri,'/');
-            $uri = ltrim($uri,'/');
             
-            if($route['pattern'] == $uri)       
-            {  
+            //Route
+            $route['pattern'] = $this->_clear_pattern($route['pattern']); 
+            $uri = $this->_clear_uri(request::uri());
 
-                //Generat the controller path and require it
-                $this->controler_path = $route['controller'].'.php';
-                $this->controler_path = str_replace('\\','/', $this->controler_path);
-                $this->controler_path = strtolower($this->controler_path);
+            //prepare for matching.
+            $route_exp = explode('/',$route['pattern']);
+            $pattern = implode('/',array_slice($route_exp,0,2));
+            
+            $uri_exp = explode('/',$uri);
+            $uri = implode('/',array_slice($uri_exp,0,2));
+
+            if($pattern == $uri)       
+            {
+                $matched = $route;
                 
+                $uri = explode('/', request::uri());
+                $controller = array_shift($uri);
+                $method = array_shift($uri);
+                $params = $uri;
 
-                //Require the controller
-                require_once $this->controler_path;
-
-                //Create instance of it
-                $this->controller = new $route['controller'];
-                call_user_func_array([$this->controller, $route['method']],[]);
-                exit;
+                //set and remove the empty arrays.  
+                $matched['params'] = array_filter($params);
                 
             }
+
+           
+        }
+
+        //Is there any mathed routed?
+        if(empty($matched))
+        {
+            //no? Show her an error page...
+            Notice::_404();
+        }
+
+        echo '<pre>';
+           print_r($matched);
+        echo '</pre>';
+       
+        //Route
+        $matched['pattern'] = $this->_clear_pattern($matched['pattern']); 
+
+        //uri
+        $uri = $this->_clear_uri(request::uri());
+     
+        
+        //Generat the controller path and require it
+        $this->controler_path = $matched['controller'].'.php';
+        $this->controler_path = str_replace('\\','/', $this->controler_path);
+        $this->controler_path = strtolower($this->controler_path);
+        
+        //is it the right request mrthod?
+        if(request::method() != $matched['type'])
+        {   
+            throw new \Exception("Bad request type.", 1);
+            
+        }
+
+        //Require the controller
+        require_once $this->controler_path;
+
+        //Create instance of it
+        $this->controller = new $matched['controller'];
+        call_user_func_array([$this->controller, $matched['method']],$matched['params']);
+
+        //Exit;
+        exit;
+            
             
             
            
-        }
     }
 
 
@@ -93,25 +134,41 @@ class router extends framework{
     //Post type
     public function post($pattern, $controller, $method)
     {
-        $this->set($pattern, $controller, $method, 'post');
+        $this->set($pattern, $controller, $method, 'POST');
     }
 
     //Get type
     public function get($pattern, $controller, $method)
     {
-        $this->set($pattern, $controller, $method, 'get');
+        $this->set($pattern, $controller, $method, 'GET');
     }
 
     //delete type
     public function delete($pattern, $controller, $method)
     {
-        $this->set($pattern, $controller, $method, 'delete');
+        $this->set($pattern, $controller, $method, 'DELETE');
     }
 
     //put type
     public function put($pattern, $controller, $method)
     {
-        $this->set($pattern, $controller, $method, 'put');
+        $this->set($pattern, $controller, $method, 'PUT');
+    }
+
+    /**
+     * Making some clean things..
+     */
+    private function _clear_pattern($uri)
+    {
+        return $this->_clear_uri($uri);
+    }
+
+    private function _clear_uri($uri)
+    {
+        $uri = rtrim($uri,'/');
+        $uri = ltrim($uri,'/');
+        return $uri;
+
     }
     
     //Debuginns

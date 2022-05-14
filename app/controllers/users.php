@@ -22,9 +22,9 @@ class users extends controller
         echo "<h1>All Users</h1>";
     }
 
-    public function create($param = false)
+    public function create($param = false, $param2 = false)
     {
-        
+        echo $param2;
         echo 'Create';
       //$this->render('users/add_form', ['title'=>'Add new User']);
     }

@@ -4,9 +4,14 @@ namespace framework;
 
 class notice extends framework{
 
+    /**
+     * Error page
+     */
     public static function _404()
     {
-        echo '404 | Not Found';
+        http_response_code(404);
+        require ERROR.'404.php';
+        exit;
     }
 
     public static function database_connection_error()
