@@ -2,8 +2,9 @@
 
 namespace app\controllers;
 
+use \framework\controller;
 
-class users
+class users extends controller
 {
 
     public function __construct()
