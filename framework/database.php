@@ -21,7 +21,7 @@ class database extends framework
         try {
             //code...
             $this->connect = new \PDO(DB_ENGINE.":host=".HOST."; dbname=".DB_NAME, USER_NAME, USER_PASSWORD);
-            $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->connect->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         
         } catch (\PDOException $e) {
             notice::database_connection_error();

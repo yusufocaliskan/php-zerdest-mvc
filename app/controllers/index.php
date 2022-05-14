@@ -2,8 +2,7 @@
 
 namespace app\controllers;
 
-use \framework\controller;
-
+use framework\controller;
 class index extends controller
 {
 

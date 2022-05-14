@@ -13,8 +13,8 @@ class zerdest_argv extends framework
         $exp_model = file_get_contents(FRAMEWORK_ASSETS.'model.exp');
     
     
-        $controller_file = CONTROLLERS.$argv[2].'/'.$argv[2].'_controller.php';
-        $model_file = MODELS.$argv[2].'_model.php';
+        $controller_file = CONTROLLERS.$argv[2].'/'.$argv[2].'.php';
+        $model_file = MODELS.$argv[2].'.php';
 
         //If there are any file
         if(file_exists($controller_file) || file_exists($model_file) || file_exists(VIEWS.$argv[2].'/home.php') )

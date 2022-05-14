@@ -7,10 +7,10 @@ error_reporting(E_ALL);
 //Inlude the config file
 require "config.php";
 
-include APP.'controllers/users.php';
 
 use framework\core;
 use framework\router;
+
 use App\Controllers\users;
 
 //Step#1 : Load the framework
@@ -18,7 +18,9 @@ use App\Controllers\users;
 function load($class_name)
 {
     $class_name = str_replace('\\','/', $class_name);
+    
     require $class_name.'.php';
+    
 }
 
 spl_autoload_register('load');
@@ -27,10 +29,8 @@ spl_autoload_register('load');
 //Step#2 : Create the core and run it
 //========================================================================================
 
-$core = new core();
-//$core->run();
-
 $router = new router();
+
 $router->get('/user/', users::class, 'home');
 $router->post('/user/add/', users::class, 'create');
 $router->get('/user/list/', users::class, 'list');

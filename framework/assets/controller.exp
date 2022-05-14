@@ -1,15 +1,16 @@
 {{php}}
 
+namespace app\controller;
 
-class {{controller_name}}_controller extends controller
+use \framework\controller;
+
+class {{controller_name}} extends controller
 {
 
     public function __construct()
     {
-        parent::__construct();
+        //parent::__construct();
 
-        //Model
-        $this->model->load();
     }
 
     public function home()

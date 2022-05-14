@@ -1,7 +1,6 @@
 <?php
 
 namespace app\controllers;
-
 use \framework\controller;
 
 class users extends controller

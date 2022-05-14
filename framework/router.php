@@ -49,7 +49,7 @@ class router extends framework{
             $uri = request::uri();
             $uri = rtrim($uri,'/');
             $uri = ltrim($uri,'/');
-
+            
             if($route['pattern'] == $uri)       
             {  
 

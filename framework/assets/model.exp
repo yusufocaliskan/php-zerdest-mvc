@@ -1,7 +1,7 @@
 {{php}}
 
 
-class {{model_name}}_model extends model
+class {{model_name}} extends model
 {   
 
     public function __construct()
