@@ -2,7 +2,8 @@
 
 namespace app\controllers;
 
-class index
+use \framework\controller;
+class index extends controller
 {
 
     public function home()

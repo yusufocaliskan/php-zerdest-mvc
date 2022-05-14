@@ -2,6 +2,8 @@
 
 namespace framework;
 
+use framework\notice;
+
 class database extends framework
 {   
 
@@ -16,11 +18,13 @@ class database extends framework
     public function connect()
     {
         
-        $this->connect = new PDO(DB_ENGINE.":host=".HOST."; dbname=".DB_NAME, USER_NAME, USER_PASSWORD);
-        $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        if(!$this->connect)
-        {
-            die("Database bağlantı hatası.");
+        try {
+            //code...
+            $this->connect = new \PDO(DB_ENGINE.":host=".HOST."; dbname=".DB_NAME, USER_NAME, USER_PASSWORD);
+            $this->connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
+        } catch (\PDOException $e) {
+            notice::database_connection_error();
         }
 
         return $this->connect;
@@ -43,11 +47,6 @@ class database extends framework
 
         $create = $this->connect->prepare("CREATE DATABASE IF NOT EXISTS $database_name");
         $create->execute();
-
-        //  if($create->rowCout() > 0)
-        //  {
-        //      echo 'the database is created';
-        //  }
 
     }
 
