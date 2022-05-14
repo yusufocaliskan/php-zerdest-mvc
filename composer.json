@@ -1,0 +1,15 @@
+{
+    "name": "yusufcaliskan/php-zerdest-mvc",
+    "autoload": {
+        "psr-4": {
+            "framework\\" : "framework"
+        }
+    },
+    "authors": [
+        {
+            "name": "yusufocaliskan",
+            "email": "yusufocaliskan@gmail.com"
+        }
+    ],
+    "require": {}
+}
