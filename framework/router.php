@@ -35,6 +35,7 @@ class router extends framework{
         //We will run it, when there is no any defined route as index.
         $this->wellcome_controller = $this->route->set('/',Index::class, 'home','GET');
 
+       // Debug::pre($_SERVER);
         
     }
 

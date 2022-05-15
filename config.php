@@ -19,9 +19,3 @@ define('ERROR', VIEWS.'errors/');
 define('THEME_DEFAULT_NAME','Falcon/');
 define('THEME_PATH', ROOT.'themes/');
 
-//Information of the Database connection
-define('HOST','127.0.0.1');
-define('DB_NAME','zerdest');
-define('USER_NAME','root');
-define('USER_PASSWORD', 'Ma5i2121');
-define('DB_ENGINE','mysql');

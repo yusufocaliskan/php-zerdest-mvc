@@ -4,9 +4,11 @@ namespace app\models;
 
 use framework\model;
 
-class users_model extends model
+class users extends model
 {   
 
+    public $all; 
+    
     public function __construct()
     {
         parent::__construct();

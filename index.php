@@ -11,6 +11,7 @@ require "config.php";
 use framework\core;
 use framework\route;
 use framework\router;
+use framework\debug;
 use app\controllers\users;
 
 //Step#1 : Load the framework
@@ -19,13 +20,17 @@ use app\controllers\users;
 require_once __DIR__ . '/vendor/autoload.php';
 
 
+//Require .env file
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
 //Step#2 : Create the router and run it
 //========================================================================================
 
 $route = new route();
 
 $route->get('/user/', users::class, 'home');
-$route->post('/user/add/', users::class, 'create');
+$route->get('/user/add/', users::class, 'create');
 $route->get('/user/list/', users::class, 'list');
 $route->put('/user/update/', users::class, 'update');
 $route->delete('/user/delete/', users::class, 'delete');

@@ -2,6 +2,7 @@
 
 namespace framework;
 use framework\database;
+use framework\Router;
 
 class model extends Database
 {   
@@ -33,13 +34,16 @@ class model extends Database
      * @param string $model_name
      * @return object
      */
-    public function load()
+    public function load($model_name)
     {   
-        $model_name = Core::$controller_name;
+        //prepare the path and the name
+        $model_path = MODELS.$model_name.'.php';
+        $model_name = "\app\models\\".$model_name;
 
-        require MODELS.$model_name.'.php';
+        require $model_path;
+        $this->model = new $model_name;
         
-        $this->model = new $model_name();
+        //return it back
         return $this;
     }
 

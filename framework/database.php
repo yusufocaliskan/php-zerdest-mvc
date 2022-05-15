@@ -11,6 +11,12 @@ class database extends framework
     
     public $connect;
 
+    public function __construct()
+    {
+        
+        
+    }
+
     /**
      * Creates the connection
      *
@@ -21,7 +27,7 @@ class database extends framework
         
         try {
             //code...
-            $this->connect = new \PDO(DB_ENGINE.":host=".HOST."; dbname=".DB_NAME, USER_NAME, USER_PASSWORD);
+            $this->connect = new \PDO($_ENV['DB_ENGINE'].":host=".$_ENV['HOST']."; dbname=".$_ENV['DB_NAME'], $_ENV['USER_NAME'], $_ENV['USER_PASSWORD']);
             $this->connect->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         
         } catch (\PDOException $e) {

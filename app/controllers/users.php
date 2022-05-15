@@ -2,18 +2,23 @@
 
 namespace app\controllers;
 use \framework\controller;
+use \framework\debug;
 
 class users extends controller
 {
 
+    public $user_model;
+
     public function __construct()
     {
 
-        //model'ı yükle
-        //$this->model->load();
+        parent::__construct();
+
+        //Load the model
+        $this->user_model = $this->model->load('users')->get();
     }
     /**
-     * Ana sayfa
+     * Home page
      *
      * @return void
      */
@@ -24,16 +29,14 @@ class users extends controller
 
     public function create($param = false, $param2 = false)
     {
-        echo $param2;
-        echo 'Create';
-      //$this->render('users/add_form', ['title'=>'Add new User']);
+      $this->render('users/add_form', ['title'=>'Add new User']);
     }
 
     public function list()
     {
-        //$all_users = $this->model->get()->all();
+       $all_users = $this->model->get()->all();
         
-       // $this->render('users/list', ['title'=>'List of Users','all_users'=>$all_users]);
+       $this->render('users/list', ['title'=>'List of Users','all_users'=>$all_users]);
     }
 
 }
