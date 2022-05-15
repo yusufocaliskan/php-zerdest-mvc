@@ -9,8 +9,9 @@ require "config.php";
 
 
 use framework\core;
+use framework\route;
 use framework\router;
-use App\Controllers\users;
+use app\controllers\users;
 
 //Step#1 : Load the framework
 //========================================================================================
@@ -21,10 +22,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 //Step#2 : Create the router and run it
 //========================================================================================
 
-$router = new router();
+$route = new route();
 
-$router->get('/user/', users::class, 'home');
-$router->post('/user/add/', users::class, 'create');
-$router->get('/user/list/', users::class, 'list');
-$router->put('/user/update/', users::class, 'update');
-$router->delete('/user/delete/', users::class, 'delete');
+$route->get('/user/', users::class, 'home');
+$route->post('/user/add/', users::class, 'create');
+$route->get('/user/list/', users::class, 'list');
+$route->put('/user/update/', users::class, 'update');
+$route->delete('/user/delete/', users::class, 'delete');
+

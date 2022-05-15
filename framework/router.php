@@ -8,9 +8,9 @@ class router extends framework{
 
 
     /**
-     * holds all the routes
+     * route object
      */
-    public $routes = [];
+    public $route;
 
     /**
      * controller paths
@@ -27,13 +27,14 @@ class router extends framework{
      */
     private $wellcome_controller = [];
     
-    public function __construct()
+    public function __construct($route)
     {
+        $this->route = $route;
+
         //Set the wellcome page
         //We will run it, when there is no any defined route as index.
-        $this->wellcome_controller = $this->set('/',Index::class, 'home','GET');
+        $this->wellcome_controller = $this->route->set('/',Index::class, 'home','GET');
 
-       // Debug::pre($_SERVER);
         
     }
 
@@ -42,7 +43,7 @@ class router extends framework{
         //get the uri
         $uri = request::uri();
         $matched = [];
-        foreach($this->routes as $route)
+        foreach($this->route->all as $route)
         {
             
             //Route
@@ -114,44 +115,6 @@ class router extends framework{
 
 
     /**
-     * Sets new route
-     */
-    public function set($pattern, $controller, $method, $type)
-    {
-        return $this->routes[]= [
-            'pattern' => $pattern,
-            'controller' => $controller,
-            'method' => $method,
-            'type' => $type,
-        ];
-        
-    }
-
-    //Post type
-    public function post($pattern, $controller, $method)
-    {
-        $this->set($pattern, $controller, $method, 'POST');
-    }
-
-    //Get type
-    public function get($pattern, $controller, $method)
-    {
-        $this->set($pattern, $controller, $method, 'GET');
-    }
-
-    //delete type
-    public function delete($pattern, $controller, $method)
-    {
-        $this->set($pattern, $controller, $method, 'DELETE');
-    }
-
-    //put type
-    public function put($pattern, $controller, $method)
-    {
-        $this->set($pattern, $controller, $method, 'PUT');
-    }
-
-    /**
      * Making some clean things..
      */
     private function _clear_pattern($uri)
@@ -171,7 +134,7 @@ class router extends framework{
     public function __destruct()
     {
         $this->init();        
-       // Debug::pre($this->routes);
+       // Debug::pre($this->route);
     }
 
     
