@@ -2,7 +2,7 @@
 
 namespace framework;
 
-class zerdest_argv extends framework
+class zerdest_command extends framework
 {
 
 
@@ -13,16 +13,15 @@ class zerdest_argv extends framework
         $exp_model = file_get_contents(FRAMEWORK_ASSETS.'model.exp');
     
     
-        $controller_file = CONTROLLERS.$argv[2].'/'.$argv[2].'.php';
+        $controller_file = CONTROLLERS.$argv[2].'.php';
         $model_file = MODELS.$argv[2].'.php';
-
+        
         //If there are any file
         if(file_exists($controller_file) || file_exists($model_file) || file_exists(VIEWS.$argv[2].'/home.php') )
         {
-            exit("\nThere are some file\n");
+            exit("\nThere is already file with same name\n");
         }
 
-        mkdir(CONTROLLERS.$argv[2]);
         if(touch($controller_file) OR touch($model_file))
         {
             //Inlude the controller

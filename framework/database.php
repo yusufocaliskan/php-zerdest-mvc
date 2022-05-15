@@ -3,6 +3,7 @@
 namespace framework;
 
 use framework\notice;
+use \framework\framework;
 
 class database extends framework
 {   

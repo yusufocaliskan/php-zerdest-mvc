@@ -8,13 +8,13 @@ Here is the github repository.
 
 # For the first installation:
 
-``zerdest start [your-database-name]``
+``php zerdest start [your-database-name]``
 
 Zerdeşt would create a new database while installing itself by that command if there isn’t any database that exists with the same name that is given by the command. Besides, it would also create a new controller called login if there isn’t any.
 
 To create a new fresh controller just use that command: 
 
-``zerdest new-controller [a-new-controller-name]``
+``php zerdest new-controller [a-new-controller-name]``
 
 # You can add the routes by using Router class
 

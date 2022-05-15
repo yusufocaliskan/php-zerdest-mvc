@@ -2,9 +2,10 @@
 <?php
 
 require 'config.php';
-require FRAMEWORK.'database.php';
-require FRAMEWORK.'zerdest_argv.php';
-$zerdest_argv = new zerdest_argv();
+require_once __DIR__ . '/vendor/autoload.php';
+use framework\zerdest_command;
+
+$zerdest = new zerdest_command();
 
 
 //start the framework
@@ -24,7 +25,7 @@ if($argv[1] == 'start')
     }
 
     //Create a new login controller
-    $zerdest_argv->new_controller(['2'=>'login']);
+    $zerdest->new_controller(['2'=>'login']);
     exit;
 }
 
@@ -32,7 +33,7 @@ if($argv[1] == 'start')
 if($argv && $argv[1] == 'new-controller')
 {  
     //Create a new controller 
-    $zerdest_argv->new_controller($argv);
+    $zerdest->new_controller($argv);
 }
 
 

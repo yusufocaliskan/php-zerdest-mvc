@@ -22,13 +22,16 @@ class router extends framework{
      */
     private $controller;
 
-    private $wellcom_controller = [];
+    /**
+     * Welcome default controller
+     */
+    private $wellcome_controller = [];
     
     public function __construct()
     {
         //Set the wellcome page
         //We will run it, when there is no any defined route as index.
-        $this->wellcom_controller = $this->set('/',Index::class, 'home','GET');
+        $this->wellcome_controller = $this->set('/',Index::class, 'home','GET');
 
        // Debug::pre($_SERVER);
         
@@ -53,6 +56,7 @@ class router extends framework{
             $uri_exp = explode('/',$uri);
             $uri = implode('/',array_slice($uri_exp,0,2));
 
+            //Is there any matching things?
             if($pattern == $uri)       
             {
                 $matched = $route;
@@ -77,10 +81,6 @@ class router extends framework{
             Notice::_404();
         }
 
-        echo '<pre>';
-           print_r($matched);
-        echo '</pre>';
-       
         //Route
         $matched['pattern'] = $this->_clear_pattern($matched['pattern']); 
 
@@ -109,10 +109,6 @@ class router extends framework{
 
         //Exit;
         exit;
-            
-            
-            
-           
     }
 
 

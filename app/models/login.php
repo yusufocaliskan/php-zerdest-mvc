@@ -1,5 +1,8 @@
 <?php
 
+namespace app\models;
+
+use framework\model;
 
 class login_model extends model
 {   

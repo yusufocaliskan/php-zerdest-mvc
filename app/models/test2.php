@@ -1,7 +1,7 @@
 <?php
 
 
-class settings_model extends model
+class test2 extends model
 {   
 
     public function __construct()

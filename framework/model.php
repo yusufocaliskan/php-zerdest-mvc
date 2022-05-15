@@ -1,8 +1,9 @@
 <?php
 
 namespace framework;
+use framework\database;
 
-class model extends framework
+class model extends Database
 {   
 
     /**
@@ -36,7 +37,6 @@ class model extends framework
     {   
         $model_name = Core::$controller_name;
 
-        $model_name = $model_name.'_model';
         require MODELS.$model_name.'.php';
         
         $this->model = new $model_name();

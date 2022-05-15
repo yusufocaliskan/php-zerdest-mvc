@@ -1,5 +1,9 @@
 <?php
 
+namespace app\models;
+
+use framework\model;
+
 class users_model extends model
 {   
 
