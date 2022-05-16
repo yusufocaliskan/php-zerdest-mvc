@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "vite": "^2.9.9",
-    "vue": "^3.2.33"
-  },
-  "devDependencies": {
-    "vue-loader": "^16.8.3"
-  }
-}
