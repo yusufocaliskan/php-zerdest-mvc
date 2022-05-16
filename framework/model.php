@@ -18,7 +18,7 @@ class model extends Database
     {   
         //Provide the connection
         $database = new database();
-        $this->DB = $database->connect();
+        $this->DB = $database->init();
     }
 
     /**

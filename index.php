@@ -26,7 +26,6 @@ $dotenv->load();
 
 //Step#2 : Create the router and run it
 //========================================================================================
-
 $route = new route();
 
 $route->get('/user/', users::class, 'home');

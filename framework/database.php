@@ -9,34 +9,41 @@ class database extends framework
 {   
 
     
-    public $connect;
+    public $connection;
 
-    public function __construct()
+    public function init()
     {
         
+        $database_engine = $_ENV['DB_ENGINE'];
         
-    }
+        
+        switch($database_engine)
+        {
+            case 'mysql':
+                $mysql = new db\mysql;
+                $this->connection = $mysql->connect();
+            break;
 
-    /**
-     * Creates the connection
-     *
-     * @return object
-     */
-    public function connect()
-    {
-        
-        try {
-            //code...
-            $this->connect = new \PDO($_ENV['DB_ENGINE'].":host=".$_ENV['HOST']."; dbname=".$_ENV['DB_NAME'], $_ENV['USER_NAME'], $_ENV['USER_PASSWORD']);
-            $this->connect->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-        
-        } catch (\PDOException $e) {
-            notice::database_connection_error();
+            case 'mongodb':
+                
+                $mongodb = new db\mongodb;
+                $this->connection = $mongodb->connect();
+            break;
+
+            default:
+            
+                $mysql = new db\mysql;
+                $this->connection = $mysql->connect();
+            break;
+
         }
-
-        return $this->connect;
+        
+        return $this->connection;
         
     }
+
+
+
 
     /**
      * Create a database
